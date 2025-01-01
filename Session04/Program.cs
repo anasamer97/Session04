@@ -4,6 +4,17 @@ namespace Session04
 {
 	internal class Program
 	{
+		static bool isPrime(int num)
+		{
+			if (num < 2)
+				return false;
+			for(int i = 2; i <= Math.Sqrt(num); i++)
+			{
+				if (num % i == 0)
+					return false;
+			}
+			return true; 
+		}
 		static void Main(string[] args)
 		{
 
@@ -211,9 +222,21 @@ namespace Session04
 			#region Assignment 04
 			// 1. Write a program that allows the user to insert an integer then print all numbers between 1 to that number
 			/*Console.WriteLine("Enter a number: ");
-			int number = int.Parse(Console.ReadLine());
-			Console.WriteLine("***************");
+			bool flag = int.TryParse(Console.ReadLine(), out int number) && (number > 0);
 
+			while (true)
+			{
+				if (flag == true)
+				{
+					break;
+				}
+				else
+				{
+					Console.WriteLine("Enter a valid number (greater than 0): ");
+					flag = int.TryParse(Console.ReadLine(), out number) ? (number > 0) : false;
+				}
+
+			}
 			for (int i = 1; i <= number; i++)
 			{
 				Console.WriteLine(i);
@@ -222,14 +245,29 @@ namespace Session04
 
 
 			// 2. Write a program that allows the user to insert an integer then print a multiplication table up to 12
-			/*Console.WriteLine("Enter a number: ");
-			int number = int.Parse(Console.ReadLine());
-			Console.WriteLine("***************");
+			//Console.WriteLine("Enter a number: ");
+			//int number = int.Parse(Console.ReadLine());
+			/*bool flag = int.TryParse(Console.ReadLine(), out int number) && (number > 0);
+			Console.WriteLine("*************");
+			while (true)
+			{
+				if (flag == true)
+				{
+					break;
+				}
+				else
+				{
+					Console.WriteLine("Enter a valid number (greater than 0): ");
+					flag = int.TryParse(Console.ReadLine(), out number) ? (number > 0) : false;
+				}
+				
+				
+			}
+
 			for (int i = 1; i <= 12; i++)
 			{
-				Console.WriteLine($"{i} {i * number}");
+				Console.WriteLine($"{i * number}");
 			}*/
-
 			// 3. Write a program that allows to insert an integer then print all even numbers between 1 to that number
 			//Console.WriteLine("Enter a number: ");
 			//int number = int.Parse(Console.ReadLine());
@@ -289,6 +327,21 @@ namespace Session04
 					Console.WriteLine(i);
 				}
 			}*/
+
+			// Other solution
+			Console.WriteLine("Enter starting range: ");
+			int startingRange = int.Parse(Console.ReadLine());
+
+			Console.WriteLine("Enter ending range: ");
+			int endingRange = int.Parse(Console.ReadLine());
+
+			for(int i = startingRange; i <= endingRange; i++)
+			{
+				if (isPrime(i))
+				{
+					Console.WriteLine(i);
+				}
+			}
 
 			// 7. Write a program in C# Sharp to convert a decimal number into binary without using an array.
 			/*Console.Write("Enter a decimal number: ");
@@ -440,7 +493,7 @@ namespace Session04
 				array1[i] = int.Parse(Console.ReadLine());
 			}
 
-			// Input elements for the second array
+			// Input elements for the second array  
 			Console.WriteLine("Enter the elements of the second array:");
 			for (int i = 0; i < size; i++)
 			{
@@ -503,6 +556,9 @@ namespace Session04
 			{
 				Console.WriteLine($"{kvp.Key}: {kvp.Value}");
 			}*/
+
+			// Other solution
+			 
 
 			// 15. Write a program in C# Sharp to find maximum and minimum element in an array
 			/*Console.Write("Enter the size of the array: ");
